@@ -105,8 +105,8 @@ var rapMachine = {
 		return this.rhymes[this.rhymesPos++].word;
 	},
 	
-	get_next_trigger: function() //Having a trigger_list is pointless because we generate a rhyme_list after. We need to use
-	{                            //the new rhyme word to make a new trigger_list, so we always use only one trigger.
+	get_next_trigger: function() 
+	{                            
 		while((this.triggersLen - this.triggersPos < 1) || this.newRhyme)
 		{
 			this.triggers = this.get_triggers(this.rhymes[this.rhymesPos-1].word);
