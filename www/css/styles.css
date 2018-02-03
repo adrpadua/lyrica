@@ -52,7 +52,7 @@ body #page2 .word-panel {
     font-size: 3em;
 }
 
-body #page2 a {
+body #page2 .ui-btn {
     margin: 5% auto;
     width: 10em;
     font-size: medium;
@@ -66,5 +66,26 @@ body #page2 a {
 .buttons {
     width: 100vw;
     position: fixed;
-    bottom: 20%;
+    bottom: 10%;
+}
+
+.playback-buttons {
+    margin: 10% auto;
+    width: 25em;
+    text-align: center;
+}
+
+.playback-buttons img {
+    height: 3.5em;
+    width: 3.5em;
+    margin: auto 1em;
+    justify-content: center;
+}
+
+img.playback-btn {
+    cursor: pointer;
+}
+
+#btn-rew {
+    transform: scaleX(-1);
 }
