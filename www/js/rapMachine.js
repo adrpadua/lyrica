@@ -39,6 +39,7 @@ var rapMachine = {
 	triggers: {},
 	triggersLen: 0,
 	triggersPos: 0,
+	forbidden = [],
 	newRhyme: 1,
 	sync_request: function(my_url)
 	{
@@ -150,7 +151,7 @@ var rapMachine = {
 	},
 	
 
-	get_pivot_word: function(word, forbidden = [])
+	get_pivot_word: function(word, forbidden = this.forbidden)
 	{
 		var r;
 		this.triggers = this.get_triggers(word);
@@ -166,11 +167,11 @@ var rapMachine = {
 				r = this.get_next_rhyme();
 			}
 		}
-		while(!this.has_rhymes(r) && !this.has_nrhymes(r))
+		while(!this.contains_item() && !this.has_rhymes(r) && !this.has_nrhymes(r))
 		return r;
 	},
 	
-	get_next_rhyme: function(forbidden = [])
+	get_next_rhyme: function(forbidden = this.forbidden)
 	{
 		var nword;
 		do
