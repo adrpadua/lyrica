@@ -1,0 +1,54 @@
+body .pages {
+    background: linear-gradient(#FFABAB, #FFEFB5);
+}
+
+body .pages section {
+    padding-top: 150px;
+}
+
+body #page1 #title {
+    color: white;
+    font-size: 5rem;
+}
+
+body #page1 div {
+    height: 280px;
+}
+
+body #page1 a {
+    margin: 0 auto;
+    width: 12em;
+    font-size: medium;
+    color: white;
+    background: transparent;
+    border: white solid 0.2em;
+    border-radius: 15px;
+}
+
+body #page2 .word-panel {
+    height: 280px;
+}
+
+body #page2 .word-panel .word-container {
+    padding-top: 50px;
+}
+
+.word {
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    
+    transition: opacity 0.5s ease-in;
+}
+
+body #page2 a {
+    margin: 0 auto;
+    width: 12em;
+    font-size: medium;
+    color: white;
+    background: transparent;
+    border: white solid 0.2em;
+    border-radius: 15px;
+}
+
+
