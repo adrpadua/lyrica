@@ -42,12 +42,13 @@ body #page2 .word-panel .word-container {
 }
 
 body #page2 a {
-    margin: 0 auto;
-    width: 12em;
+    margin: 0.5em auto;
+    width: 10em;
     font-size: medium;
+    font-weight: 200;
     color: white;
     background: transparent;
-    border: white solid 0.2em;
+    border: white solid 0.15em;
     border-radius: 15px;
 }
 
