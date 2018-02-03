@@ -2,8 +2,12 @@ body .pages {
     background: linear-gradient(#FFABAB, #FFEFB5);
 }
 
-body .pages section {
-    padding-top: 150px;
+body .ui-content {
+    height: 100%;
+    padding-top: 25%;
+    padding-bottom: 15%;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 body #page1 #title {
@@ -25,24 +29,24 @@ body #page1 a {
     border-radius: 15px;
 }
 
-body #page2 .word-panel {
-    height: 280px;
+body #page2 {
+    align-content: center;
 }
 
-body #page2 .word-panel .word-container {
-    padding-top: 50px;
+body #page2 .word-panel {
+    height: 40%;
+    padding: 10%;
 }
 
 .word {
     color: white;
     text-align: center;
-    font-size: 25px;
-    
-    transition: opacity 0.5s ease-in;
+    font-size: 3em;
+    overflow: scroll;
 }
 
 body #page2 a {
-    margin: 0.5em auto;
+    margin: 5% auto;
     width: 10em;
     font-size: medium;
     font-weight: 200;
@@ -52,4 +56,8 @@ body #page2 a {
     border-radius: 15px;
 }
 
-
+.buttons {
+    width: 100vw;
+    position: fixed;
+    bottom: 20%;
+}
