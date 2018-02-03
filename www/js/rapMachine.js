@@ -67,6 +67,12 @@ var rapMachine = {
 		return(JSON.parse(this.sync_request(base + word)));
 	},
 	
+	get_ntriggers: function()
+	{
+		var base = "https://api.datamuse.com/words?ml=";
+		return(JSON.parse(this.sync_request(base + word)));
+	},
+	
 	has_rhymes: function(word)
 	{
 		var r = this.get_rhymes(word);
@@ -85,17 +91,49 @@ var rapMachine = {
 		return (t.length > 0);
 	},
 	
-	contains_substr: function(string, substr)
+	has_ntriggers: function(word)
 	{
-		return string.indexOf(substr) !== -1;
+		var t = this.get_ntriggers(word);
+		return (t.length > 0);
 	},
 	
-	get_next_rhyme: function(firstWord)
+	function contains_item(arr, item)
+	{
+		return arr.indexOf(item) !== -1;
+	}
+	function shuffle(a)
+	{
+		var j, x, i;
+		for (i = a.length - 1; i > 0; i--)
+		{
+			j = Math.floor(Math.random() * (i + 1));
+			x = a[i];
+			a[i] = a[j];
+			a[j] = x;
+		}
+	}
+
+	function randomize_first_third(arr)
+	{
+		var c = Math.floor(arr.length/3);
+		var first_ = arr.slice(0,c);
+		var second_ = arr.slice(c,arr.length);
+
+		shuffle(first_);
+		var new_arr = first_.concat(second_);
+		return new_arr;
+	}
+	
+	get_next_rhyme: function(firstWord, forbidden = [])
 	{
 		while((firstWord && (this.rhymesLen - this.rhymesPos) < 2) || !this.newRhyme)
 		{
 			if(!this.newRhyme)
-				this.rhymes = this.get_rhymes(this.triggers[this.triggersPos-1].word);
+			{
+				var nword = this.triggers[this.triggersPos-1].word;
+				this.rhymes = randomize_first_third(this.get_rhymes(nword));
+				this.rhymes.concat(randomize_first_third(this.get_nrhymes(nword)));
+			}
 			else
 				this.rhymes = this.get_rhymes(corpus.randomWord());
 			this.rhymesLen = this.rhymes.length;
@@ -105,11 +143,13 @@ var rapMachine = {
 		return this.rhymes[this.rhymesPos++].word;
 	},
 	
-	get_next_trigger: function() 
+	get_next_trigger: function(forbidden = []) 
 	{                            
 		while((this.triggersLen - this.triggersPos < 1) || this.newRhyme)
 		{
-			this.triggers = this.get_triggers(this.rhymes[this.rhymesPos-1].word);
+			var nword = this.rhymes[this.rhymesPos-1].word;
+			this.triggers = this.get_triggers(nword);
+			this.triggers.concat(this.get_triggers(nword));
 			this.triggersLen = this.triggers.length;
 			this.triggersPos = 0;
 			this.newRhyme = 0;
