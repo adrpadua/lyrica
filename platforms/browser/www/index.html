@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+	Brent Dixon; Adrian
+	App Description: Freestyle trainer.
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        
+		<script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+		<script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/corpus.js"></script>
+		
+
+		
+		<title>Lyrica</title>
+    </head>
+    <body style="background: linear-gradient(#FFABAB, #FFEFB5)">
+        
+		<div data-role="page" id="page1" style="background: linear-gradient(#FFABAB, #FFEFB5)">
+			<!--<header data-role="header" data-position="fixed" style="border-color:orange; border-bottom-width:thick;">	
+				<img src="img/Android.png" width="30px" height="30px"/>
+				<h3 style="color:white" class="ui-inline">Lyrica</h3>
+			</header>-->
+			
+			<section data-role="content"  style="padding-top:150px;">
+				<h1 id="title" style="color:white; font-size:40px">Lyrica</h1>
+				<div style="height:280px"></div>
+				<a href="#page2" data-role="button" class="ui-btn" data-transition="flip" style="margin:0 auto; width:12em; font-size:small">Play</a> 
+			</section>
+			
+			<!--<footer data-role="footer" data-position="fixed" style="border-color:orange; border-top-width:thick;">
+				<h3 style="color:white">Lyrica</h3>
+			</footer>-->
+		</div>
+		
+		<div data-role="page" id="page2" style="background: linear-gradient(#FFABAB, #FFEFB5)">
+			<!--<header data-role="header" data-position="fixed" style="border-color:orange; border-bottom-width:thick;">	
+				<img src="img/Android.png" width="30px" height="30px"/>
+				<h3 style="color:white" class="ui-inline">Lyrica</h3>
+			</header>-->
+			
+			<section data-role="content"  style="padding-top:150px;">
+				<div style="height:280px">
+					<div style="padding-top:50px">
+						<p id="firstWord" style="color:white; text-align:center; font-size:25px"></p>
+					</div>
+					<div style="padding-top:50px">
+						<p id="secondWord" style="color:white; text-align:center; font-size:25px"></p>
+					</div>
+				</div>
+				<a href="" id="getRhyme" data-role="button" class="ui-btn" data-transition="flip" style="margin:0 auto; width:12em; font-size:small">Play</a> 
+				<script>
+					$("#getRhyme").click(function randomWords(){
+						firstWord = corpus.randomWord();
+						secondWord = corpus.randomWord();
+						document.getElementById("firstWord").innerHTML = firstWord;
+						document.getElementById("secondWord").innerHTML = secondWord;
+					});
+				</script>
+			</section>
+			
+			<!--<footer data-role="footer" data-position="fixed" style="border-color:orange; border-top-width:thick;">
+				<h3 style="color:white">Lyrica</h3>
+			</footer>-->
+		</div>
+		
+    </body>
+</html>
