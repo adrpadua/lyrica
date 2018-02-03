@@ -1,3 +1,7 @@
+body {
+    position: fixed;
+}
+
 body .pages {
     background: linear-gradient(#FFABAB, #FFEFB5);
 }
@@ -36,8 +40,10 @@ body #page2 {
 }
 
 body #page2 .word-panel {
+    width: 100vw;
+    top: 15%;
+    position: fixed;
     height: 40%;
-    padding: 10%;
 }
 
 .word {
