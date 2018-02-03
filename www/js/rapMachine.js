@@ -39,7 +39,7 @@ var rapMachine = {
 	triggers: {},
 	triggersLen: 0,
 	triggersPos: 0,
-	forbidden = [],
+	forbidden: [],
 	newRhyme: 1,
 	sync_request: function(my_url)
 	{
