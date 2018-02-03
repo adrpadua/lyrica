@@ -22,8 +22,6 @@
         <script type="text/javascript" src="js/index.js"></script>
 		<script type="text/javascript" src="js/corpus.js"></script>
 		
-
-		
 		<title>Lyrica</title>
     </head>
     <body>
@@ -37,7 +35,7 @@
 			<section data-role="content">
 				<h1 id="title">Lyrica</h1>
 				<div></div>
-				<a href="#page2" data-role="button" class="ui-btn" data-transition="flip">Play</a> 
+				<a href="#page2" data-role="button" class="ui-btn rounded-btn" data-transition="slide">Play</a> 
 			</section>
 			
 			<!--<footer data-role="footer" data-position="fixed" style="border-color:orange; border-top-width:thick;">
@@ -65,8 +63,19 @@
 					$("#getRhyme").click(function randomWords(){
 						firstWord = corpus.randomWord();
 						secondWord = corpus.randomWord();
-						document.getElementById("firstWord").innerHTML = firstWord;
-						document.getElementById("secondWord").innerHTML = secondWord;
+						
+						$('.word-container').fadeOut(100, function() {
+
+							document.getElementById("firstWord").innerHTML = firstWord;
+							document.getElementById("secondWord").innerHTML = secondWord;
+							$('.word-container').fadeIn(50)
+						});
+
+						// $('.word-container').css({"visibility" : "hidden"});
+						// $('#firstWord').css({"visibility" : "visible"});
+						;
+
+						
 					});
 				</script>
 			</section>

@@ -33,15 +33,22 @@ body #page2 .word-panel .word-container {
     padding-top: 50px;
 }
 
-body #page2 .word-panel .word-container .word {
+.word {
     color: white;
     text-align: center;
     font-size: 25px;
+    
+    transition: opacity 0.5s ease-in;
 }
 
 body #page2 a {
     margin: 0 auto;
     width: 12em;
-    font-size: small;
+    font-size: medium;
+    color: white;
+    background: transparent;
+    border: white solid 0.2em;
+    border-radius: 15px;
 }
+
 
