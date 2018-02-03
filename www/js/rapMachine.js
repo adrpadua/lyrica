@@ -67,7 +67,7 @@ var rapMachine = {
 		return(JSON.parse(this.sync_request(base + word)));
 	},
 	
-	get_ntriggers: function()
+	get_ntriggers: function(word)
 	{
 		var base = "https://api.datamuse.com/words?ml=";
 		return(JSON.parse(this.sync_request(base + word)));
@@ -97,11 +97,12 @@ var rapMachine = {
 		return (t.length > 0);
 	},
 	
-	function contains_item(arr, item)
+	contains_item: function(arr, item)
 	{
 		return arr.indexOf(item) !== -1;
-	}
-	function shuffle(a)
+	},
+	
+	shuffle: function(a)
 	{
 		var j, x, i;
 		for (i = a.length - 1; i > 0; i--)
@@ -111,49 +112,74 @@ var rapMachine = {
 			a[i] = a[j];
 			a[j] = x;
 		}
-	}
+	},
 
-	function randomize_first_third(arr)
+	randomize_first_third: function(arr)
 	{
 		var c = Math.floor(arr.length/3);
 		var first_ = arr.slice(0,c);
 		var second_ = arr.slice(c,arr.length);
 
-		shuffle(first_);
+		this.shuffle(first_);
 		var new_arr = first_.concat(second_);
 		return new_arr;
-	}
-	
-	get_next_rhyme: function(firstWord, forbidden = [])
-	{
-		while((firstWord && (this.rhymesLen - this.rhymesPos) < 2) || !this.newRhyme)
-		{
-			if(!this.newRhyme)
-			{
-				var nword = this.triggers[this.triggersPos-1].word;
-				this.rhymes = randomize_first_third(this.get_rhymes(nword));
-				this.rhymes.concat(randomize_first_third(this.get_nrhymes(nword)));
-			}
-			else
-				this.rhymes = this.get_rhymes(corpus.randomWord());
-			this.rhymesLen = this.rhymes.length;
-			this.rhymesPos = 0;
-			this.newRhyme = 1;
-		}
-		return this.rhymes[this.rhymesPos++].word;
 	},
 	
-	get_next_trigger: function(forbidden = []) 
-	{                            
-		while((this.triggersLen - this.triggersPos < 1) || this.newRhyme)
+	new_rhyme_scheme: function(word)
+	{
+		this.rhymes = this.get_rhymes(word);
+		this.rhymes.concat(this.get_nrhymes(word));
+		this.rhymes = this.randomize_first_third(this.rhymes);
+	},
+	
+	first_rhyme_scheme: function()
+	{
+		while(true)
 		{
-			var nword = this.rhymes[this.rhymesPos-1].word;
-			this.triggers = this.get_triggers(nword);
-			this.triggers.concat(this.get_triggers(nword));
-			this.triggersLen = this.triggers.length;
-			this.triggersPos = 0;
-			this.newRhyme = 0;
+			var word = corpus.randomWord();
+			this.new_rhyme_scheme(word);
+			if (this.rhymes.length > 1)
+				break;
 		}
-		return this.triggers[this.triggersPos++].word;
+		return word;
+	},
+	
+	can_rhyme: function(threshhold = 1)
+	{
+		return this.rhymes.length >= threshhold;
+	},
+	
+
+	get_pivot_word: function(word, forbidden = [])
+	{
+		var r;
+		this.triggers = this.get_triggers(word);
+		this.triggers.concat(this.get_ntriggers(word));
+		
+		do
+		{
+			if (this.triggers.length > 0)
+				r = this.triggers.shift().word;
+			else
+			{
+				this.first_rhyme_scheme();
+				r = this.get_next_rhyme();
+			}
+		}
+		while(!this.has_rhymes(r) && !this.has_nrhymes(r))
+		return r;
+	},
+	
+	get_next_rhyme: function(forbidden = [])
+	{
+		var nword;
+		do
+		{
+			if (!this.can_rhyme())
+				return "ERROR!";
+			nword = this.rhymes.shift().word;
+		}
+		while (this.contains_item(forbidden, nword))
+		return nword;
 	},
 };

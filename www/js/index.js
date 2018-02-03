@@ -1,28 +1,52 @@
 $(document).on("pagebeforeshow", "#page2", function(event){
-	firstWord = rapMachine.get_next_rhyme(1);
-	secondWord = rapMachine.get_next_rhyme(0);
+	firstWord = rapMachine.first_rhyme_scheme();
+	secondWord = rapMachine.get_next_rhyme();
 	document.getElementById("firstWord").innerHTML = firstWord;
 	document.getElementById("secondWord").innerHTML = secondWord;
 });
 
 function rhyme() {
-	console.log("hi");
-
-	firstWord = rapMachine.get_next_rhyme(1);
-	secondWord = rapMachine.get_next_rhyme(0);
+	if (rapMachine.can_rhyme(2))
+	{
+		firstWord = rapMachine.get_next_rhyme();
+		secondWord = rapMachine.get_next_rhyme();
+	}
+	else
+	{
+		firstWord = rapMachine.first_rhyme_scheme();
+		secondWord = rapMachine.get_next_rhyme();
+	}
 	
 	refreshWords();
 }
 
 function trigger() {
-	firstWord = rapMachine.get_next_trigger();
-	secondWord = rapMachine.get_next_rhyme(0);
+	var new_word = rapMachine.get_pivot_word(secondWord);
+	rapMachine.new_rhyme_scheme(new_word);
+	firstWord = new_word;
+	secondWord = rapMachine.get_next_rhyme();
 	
 	refreshWords();
 }
 
 function refreshWords() {
 	$('.word-container').fadeOut(100, fadeWordsIn);
+	if (!rapMachine.can_rhyme(2))
+	{
+		$('#getRhyme')[0].innerHTML = "MIX IT UP!"
+		$('#getRhyme').css({
+			"color":"blue",
+			"border":"blue solid .15em"
+		});
+	}
+	else
+	{
+		$('#getRhyme')[0].innerHTML = "RHYME"
+		$('#getRhyme').css({
+			"color":"white",
+			"border":"white solid .15em"
+		});
+	}
 }
 
 function fadeWordsIn() {

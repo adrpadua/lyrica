@@ -42,7 +42,6 @@ body #page2 .word-panel {
     color: white;
     text-align: center;
     font-size: 3em;
-    overflow: scroll;
 }
 
 body #page2 a {
