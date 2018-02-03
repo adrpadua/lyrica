@@ -17,11 +17,9 @@
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
         
-		<script type="text/javascript" src="cordova.js"></script>
+		<!--<script type="text/javascript" src="cordova.js"></script>-->
         <script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript" src="js/corpus.js"></script>
-		
-
+		<script type="text/javascript" src="js/rapMachine.js"></script>
 		
 		<title>Lyrica</title>
     </head>
@@ -59,11 +57,18 @@
 						<p id="secondWord" style="color:white; text-align:center; font-size:25px"></p>
 					</div>
 				</div>
-				<a href="" id="getRhyme" data-role="button" class="ui-btn" data-transition="flip" style="margin:0 auto; width:12em; font-size:small">Play</a> 
+				<a href="" id="getRhyme" data-role="button" class="ui-btn" data-transition="flip" style="margin:0 auto; width:12em; font-size:small">Rhyme</a>
+				<a href="" id="getRelated" data-role="button" class="ui-btn" data-transition="flip" style="margin:0 auto; width:12em; font-size:small">Related</a> 
 				<script>
-					$("#getRhyme").click(function randomWords(){
-						firstWord = corpus.randomWord();
-						secondWord = corpus.randomWord();
+					$("#getRhyme").click(function rhyme(){
+						firstWord = rapMachine.get_next_rhyme(1);
+						secondWord = rapMachine.get_next_rhyme(0);
+						document.getElementById("firstWord").innerHTML = firstWord;
+						document.getElementById("secondWord").innerHTML = secondWord;
+					});
+					$("#getRelated").click(function trigger(){
+						firstWord = rapMachine.get_next_trigger();
+						secondWord = rapMachine.get_next_rhyme(0);
 						document.getElementById("firstWord").innerHTML = firstWord;
 						document.getElementById("secondWord").innerHTML = secondWord;
 					});
