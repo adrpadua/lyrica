@@ -13,6 +13,7 @@ body .ui-content {
 body #page1 #title {
     color: white;
     font-size: 5rem;
+    margin-top: 5%;
 }
 
 body #page1 div {
@@ -20,12 +21,13 @@ body #page1 div {
 }
 
 body #page1 a {
-    margin: 0 auto;
-    width: 12em;
+    margin: 5% auto;
+    width: 10em;
     font-size: medium;
+    font-weight: 200;
     color: white;
     background: transparent;
-    border: white solid 0.2em;
+    border: white solid 0.15em;
     border-radius: 15px;
 }
 
