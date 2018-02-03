@@ -1,5 +1,5 @@
 $(document).on("pagebeforeshow", "#page2", function(event){
-	firstWord = rapMachine.new_rhyme_scheme("bag");//first_rhyme_scheme();
+	firstWord = rapMachine.first_rhyme_scheme();
 	secondWord = rapMachine.get_next_rhyme();
 	document.getElementById("firstWord").innerHTML = firstWord;
 	document.getElementById("secondWord").innerHTML = secondWord;
