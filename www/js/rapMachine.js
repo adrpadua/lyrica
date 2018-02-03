@@ -39,7 +39,7 @@ var rapMachine = {
 	triggers: {},
 	triggersLen: 0,
 	triggersPos: 0,
-	forbidden: [],
+	forbidden: ["bag".replace("b","f"),"bigger".replace("b","n"),"meaner".replace("m","b"),"granny".replace("g","t")],
 	newRhyme: 1,
 	sync_request: function(my_url)
 	{
@@ -167,7 +167,7 @@ var rapMachine = {
 				r = this.get_next_rhyme();
 			}
 		}
-		while(!this.contains_item() && !this.has_rhymes(r) && !this.has_nrhymes(r))
+		while(!this.contains_item(r, forbidden) && !this.has_rhymes(r) && !this.has_nrhymes(r))
 		return r;
 	},
 	
