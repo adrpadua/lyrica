@@ -27,6 +27,12 @@ $(document).ready(function()
 		return(JSON.parse(sync_request(base + word)));
 	}
 	
+	function get_ntriggers(word)
+	{
+		var base = "https://api.datamuse.com/words?ml=";
+		return(JSON.parse(sync_request(base + word)));
+	}
+	
 	function has_rhymes(word)
 	{
 		var r = get_rhymes(word);
@@ -45,33 +51,61 @@ $(document).ready(function()
 		return (t.length > 0)
 	}
 	
-	function contains_substr(string, substr)
+	function has_ntriggers(word)
 	{
-		return string.indexOf(substr) !== -1;
+		var t = get_ntriggers(word);
+		return (t.length > 0)
 	}
 	
-	function get_next_rhyme(word)
+	function contains_item(arr, item)
 	{
-		var rhymes = get_rhymes(word);
+		return arr.indexOf(item) !== -1;
+	}
+	function shuffle(a)
+	{
+		var j, x, i;
+		for (i = a.length - 1; i > 0; i--)
+		{
+			j = Math.floor(Math.random() * (i + 1));
+			x = a[i];
+			a[i] = a[j];
+			a[j] = x;
+		}
+	}
+	
+	function randomize_first_third(arr)
+	{
+		var c = Math.floor(arr.length/3);
+		var first_ = arr.slice(0,c);
+		var second_ = arr.slice(c,arr.length);
+
+		shuffle(first_);
+		var new_arr = first_.concat(second_);
+		return new_arr;
+	}
+	
+	function get_next_rhyme(word, forbidden = [])
+	{
+		var rhymes = randomize_first_third(get_rhymes(word));
 		for (r in rhymes)
 		{
-			if (has_rhymes(rhymes[r].word) && (word != rhymes[r].word))
+			if ((word != rhymes[r].word) && !contains_item(forbidden,rhymes[r].word) && has_rhymes(rhymes[r].word))
 			{
 				return rhymes[r].word;
 			}
-			if (has_nrhymes(rhymes[r].word) && (word != rhymes[r].word))
+			if ( (word != rhymes[r].word) && !contains_item(forbidden,rhymes[r].word) && has_nrhymes(rhymes[r].word))
 			{
 				return rhymes[r].word;
 			}
 		}
-		var rhymes = get_nrhymes(word);
+		var rhymes = randomize_first_third(get_nrhymes(word));
 		for (r in rhymes)
 		{
-			if (has_rhymes(rhymes[r].word) && (word != rhymes[r].word))
+			if ((word != rhymes[r].word) &&!contains_item(forbidden,rhymes[r].word) && has_rhymes(rhymes[r].word))
 			{
 				return rhymes[r].word;
 			}
-			if (has_nrhymes(rhymes[r].word) && (word != rhymes[r].word))
+			if ((word != rhymes[r].word)&&!contains_item(forbidden,rhymes[r].word) && has_nrhymes(rhymes[r].word))
 			{
 				return rhymes[r].word;
 			}
@@ -79,27 +113,48 @@ $(document).ready(function()
 		return "Error"
 	}
 	
-	function get_next_trigger(word)
+	function get_next_trigger(word, forbidden = [])
 	{
-		var triggers = get_triggers(word);
+		var triggers = randomize_first_third(get_triggers(word));
 		for (t in triggers)
 		{
-			if (has_triggers(triggers[t].word) && (word != triggers[t].word))
+			if ((word != triggers[t].word) && !contains_item(forbidden,triggers[t].word) && has_triggers(triggers[t].word))
+				return triggers[t].word;
+			if ((word != triggers[t].word) && !contains_item(forbidden,triggers[t].word) && has_ntriggers(triggers[t].word))
+				return triggers[t].word;
+		}
+		var triggers = randomize_first_third(get_ntriggers(word));
+		for (t in triggers)
+		{
+			if ((word != triggers[t].word) && !contains_item(forbidden,triggers[t].word) && has_triggers(triggers[t].word))
+				return triggers[t].word;
+			if ((word != triggers[t].word) && !contains_item(forbidden,triggers[t].word) && has_ntriggers(triggers[t].word))
 				return triggers[t].word;
 		}
 		return "Error"
 	}
 	
-	var cw = "keyboard";
+	var cw = "shade";
+	var forbid = [cw]
 	console.log(cw);
 	while(true)
 	{
-		var nr = get_next_rhyme(cw);
+		var nr = get_next_rhyme(cw, forbid);
 		console.log(nr);
+		forbid.push(nr);
 		console.log("---");
-		var nt = get_next_trigger(nr);
+		var nt = get_next_trigger(nr, forbid);
 		console.log(nt);
+		forbid.push(nt);
 		cw = nt;
 	}
+	/*while(true)
+	{
+		cw = get_next_rhyme(cw, forbid);
+		forbid.push(cw);
+		console.log(cw);
+	}*/
+	
+	
 });
 
