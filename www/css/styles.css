@@ -1,91 +1,290 @@
-body {
-    position: fixed;
-}
+/* Small screens - MOBILE */
+@media only screen { 
+    body {
+        position: fixed;
+    }
+    
+    body .pages {
+        background: linear-gradient(#FFABAB, #FFEFB5);
+    }
 
-body .pages {
-    background: linear-gradient(#FFABAB, #FFEFB5);
-}
+    body #page1 .ui-content {
+        height: 100%;
+        padding-top: 25%;
+        padding-bottom: 25%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 
-body .ui-content {
-    height: 100%;
-    padding-top: 25%;
-    padding-bottom: 15%;
-    padding-left: 0;
-    padding-right: 0;
-}
+    body #page1 #title {
+        color: white;
+        font-size: 7em;
+    }
+    
+    body #page1 div {
+        height: 15em;
+    }
+    
+    body #page1 .ui-btn {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0.5em;
+        width: 10em;
+        font-size: 1.5em;
+        font-weight: 400;
+        color: white;
+        background: transparent;
+        border: white solid 0.15em;
+        border-radius: 0.5em;
+    }
+    
+    body #page2 .ui-content {
+        height: 100%;
+        padding-top: 25%;
+        padding-bottom: 15%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    body #page2 {
+        align-content: center;
+    }
+    
+    body #page2 .word-panel {
+        width: 100vw;
+        top: 15%;
+        position: fixed;
+        height: 40%;
+    }
+    
+    .word {
+        color: white;
+        text-align: center;
+        font-size: 3.5em;
+    }
+    
+    #page2 .ui-btn {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.5em;
+        width: 10em;
+        font-size: 1em;
+        font-weight: 400;
+        color: white;
+        background: transparent;
+        border: white solid 0.15em;
+        border-radius: 0.5em;
+    }
+    
+    .playback-buttons {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2em;
+        margin-bottom: 5em;
+        width: 25em;
+        text-align: center;
+    }
+    
+    .buttons {
+        width: 100vw;
+        position: fixed;
+        bottom: 5%;
+    }
+    
+    .playback-buttons img {
+        height: 2.8em;
+        width: 2.8em;
+        margin: auto 1em;
+        justify-content: center;
+    }
+    
+    img.playback-btn {
+        cursor: pointer;
+    }
+    
+    #btn-rew {
+        transform: scaleX(-1);
+    }
+} /* Define mobile styles - Mobile First */
+ 
+@media only screen and (max-height: 20em) { } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+ 
 
-body #page1 #title {
-    color: white;
-    font-size: 5rem;
-    margin-top: 5%;
-}
 
-body #page1 div {
-    height: 280px;
-}
 
-body #page1 a {
-    margin: 5% auto;
-    width: 10em;
-    font-size: medium;
-    font-weight: 400;
-    color: white;
-    background: transparent;
-    border: white solid 0.15em;
-    border-radius: 15px;
-}
 
-body #page2 {
-    align-content: center;
-}
 
-body #page2 .word-panel {
-    width: 100vw;
-    top: 15%;
-    position: fixed;
-    height: 40%;
-}
 
-.word {
-    color: white;
-    text-align: center;
-    font-size: 3em;
-}
+@media only screen and (min-width: 40.063em) and (max-height: 30em){ 
+    body .pages {
+        background: linear-gradient(#FFABAB, #FFEFB5);
+    }
 
-body #page2 .ui-btn {
-    margin: 5% auto;
-    width: 10em;
-    font-size: medium;
-    font-weight: 400;
-    color: white;
-    background: transparent;
-    border: white solid 0.15em;
-    border-radius: 15px;
-}
+    body .ui-content {
+        height: 100%;
+        padding-top: 15%;
+        padding-bottom: 15%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 
-.buttons {
-    width: 100vw;
-    position: fixed;
-    bottom: 10%;
-}
+    .word {
+        margin-top: 0.5em;;
+        margin-bottom: 0;
+    }
+    
+    .main-buttons {
+        width: 100vw;
+        margin-bottom: 1.5em;
+        justify-content: center;
+    }
 
-.playback-buttons {
-    margin: 10% auto;
-    width: 25em;
-    text-align: center;
-}
+    #page2 .ui-btn {
+        margin: auto 0.7em;
+        font-size: 1.5em;
+        font-weight: 400;
+        color: white;
+        background: transparent;
+        border: white solid 0.15em;
+        border-radius: 0.5em;
+    }
 
-.playback-buttons img {
-    height: 3.5em;
-    width: 3.5em;
-    margin: auto 1em;
-    justify-content: center;
-}
+    .playback-buttons {
+        margin: auto;
+    }
 
-img.playback-btn {
-    cursor: pointer;
-}
+    .main-buttons {
+        display: flex;
+        flex-direction: row;
+    }
 
-#btn-rew {
-    transform: scaleX(-1);
+    body #page1 #title {
+        color: white;
+        font-size: 4em;
+    }
+
+    body #page1 div {
+        height: 1em;
+    }
+
+    body #page1 .ui-btn {
+        font-size: 1em;
+    }
 }
+ 
+@media only screen and (min-width: 40.063em) and (min-height: 31em) { 
+    body .pages {
+        background: linear-gradient(#FFABAB, #FFEFB5);
+    }
+    
+    .word {
+        font-size: 5em;
+    }
+} 
+
+@media only screen and (min-width: 64.063em) { 
+    body .pages {
+        background: linear-gradient(#FFABAB, #FFEFB5);
+    }
+    
+    .word {
+        font-size: 7em;
+    }
+
+    #page2 .ui-btn {
+        font-size: 1.5em;
+    }
+
+    .playback-buttons {
+        margin-top: 3em;
+        width: 100vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .playback-buttons img {
+        height: 5em;
+        width: 5em;
+        margin: auto 1em;
+        justify-content: center;
+    }
+
+    body #page1 #title {
+        color: white;
+        font-size: 17em;
+    }
+
+    body #page1 div {
+        height: 15em;
+    }
+
+    body #page1 .ui-btn {
+        font-size: 3em;
+    }
+
+}
+ 
+@media only screen and (min-width: 64.063em) and (max-width: 90em) { 
+    body .pages {
+        background: linear-gradient(#FFABAB, #FFEFB5);
+    }
+
+    body .ui-content {
+        height: 100%;
+        padding-top: 15%;
+        padding-bottom: 15%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .word {
+        margin-top: 0.5em;;
+        margin-bottom: 0;
+        font-size: 6em;
+    }
+    
+    .main-buttons {
+        width: 100vw;
+        margin-bottom: 2.5em;
+        justify-content: center;
+    }
+
+    #page2 .ui-btn {
+        margin: auto 0.7em;
+        font-size: 2em;
+        font-weight: 400;
+        color: white;
+        background: transparent;
+        border: white solid 0.15em;
+        border-radius: 0.5em;
+    }
+
+    .playback-buttons {
+        margin: auto;
+    }
+
+    .playback-buttons img {
+        height: 5em;
+        width: 5em;
+        margin: auto 1em;
+        justify-content: center;
+    }
+
+    .main-buttons {
+        display: flex;
+        flex-direction: row;
+    }
+
+    body #page1 #title {
+        color: white;
+        font-size: 9em;
+    }
+
+    body #page1 div {
+        height: 10em;
+    }
+
+    body #page1 .ui-btn {
+        font-size: 2em;
+    }
+} 
