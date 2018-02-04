@@ -163,7 +163,7 @@
 /* Large screens - DESKTOP */
 @media only screen and (min-width: 64.063em) { 
     body .pages {
-        background: gray;
+        background: linear-gradient(#FFABAB, #FFEFB5);
     }
     
     .word {
