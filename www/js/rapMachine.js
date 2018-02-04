@@ -52,6 +52,7 @@ var rapMachine = {
 	["cure", "pure", "contour", "tour", "boor", "fewer", "lacour", "sewer"], 
 	["wool", "stool", "drool", "fool", "jewel", "spoonful", "bull", "in full", "mouthful"], 
 	["bluff", "rough", "stuff", "cream puff", "tough", "fluff", "hot stuff", "enough", "earmuff"],
+	["fortify", "aye", "guy", "stye", "pie", "high", "blue sky", "black eye", "buckeye", "fry", "cry", "nigh", "ally", "fly"], ["crime", "brime", "chime", "chyme", "climb", "clime", "dime", "drime", "grime"], ["enemy", "kennedy", "dreadfully", "parody", "entity", "pleasantly", "sesame", "medically", "ecstasy", "fretfully"], ["precocious", "bogus", "ferocious", "atrocious", "focus", "prognosis", "mitosis", "hypnosis", "osmosis"], ["shortage", "cartridge", "cottage", "garbage", "mortgage", "knowledge", "bondage", "forage", "porridge"],
 	[
     "ditch",
     "fitch",
