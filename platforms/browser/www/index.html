@@ -21,7 +21,7 @@
 		<!--<script type="text/javascript" src="cordova.js"></script>-->
         <script type="text/javascript" src="js/index.js"></script>
 		<script type="text/javascript" src="js/rapMachine.js"></script>
-		<script>playMode=0; numTracks=3; trackPos=0;</script>
+		<script>playMode=0; numTracks=5; trackPos=0;</script>
 		
 		<title>Lyrica</title>
     </head>
@@ -50,15 +50,23 @@
 					</div>
 				</div>
 				<div class="buttons">
-					<a href="" onclick="rhyme()" id="getRhyme" data-role="button" class="ui-btn">Rhyme</a>
-					<a href="" onclick="trigger()" id="getRelated" data-role="button" class="ui-btn">Pivot</a> 
+					<div class="main-buttons">
+						<a href="" onclick="rhyme()" id="getRhyme" data-role="button" class="ui-btn">Rhyme</a>
+						<a href="" onclick="trigger()" id="getRelated" data-role="button" class="ui-btn">Pivot</a> 
+					</div>
 					<div class="playback-buttons">
 						<div class="playback holder">
 							<img class="playback-btn" id="btn-rew" src="./img/playback-ff.svg" onclick="prevAud()" />
 							<img class="playback-btn" id="btn-play" src="./img/playback-play.svg" onclick="playAud()" />
 							<img class="playback-btn" id="btn-ff" src="./img/playback-ff.svg" onclick="nextAud()" />
 							<script>
-								var audio = document.getElementById("myAudio"); 
+								var audio = document.getElementById("myAudio");
+								$(document).on("swiperight", function(e){
+									rhyme();
+								});
+								$(document).on("swipeleft", function(e){
+									trigger();
+								});
 
 								function playAud() {
 									if(playMode == 0)

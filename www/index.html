@@ -60,7 +60,13 @@
 							<img class="playback-btn" id="btn-play" src="./img/playback-play.svg" onclick="playAud()" />
 							<img class="playback-btn" id="btn-ff" src="./img/playback-ff.svg" onclick="nextAud()" />
 							<script>
-								var audio = document.getElementById("myAudio"); 
+								var audio = document.getElementById("myAudio");
+								$(document).on("swiperight", function(e){
+									rhyme();
+								});
+								$(document).on("swipeleft", function(e){
+									trigger();
+								});
 
 								function playAud() {
 									if(playMode == 0)

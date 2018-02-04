@@ -2,15 +2,14 @@
 <widget id="edu.uci.hack.adrian.brent" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Lyrica</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Hype up parties and be a freestyle legend! Lyrica app gives you rhymes and a beat so you can get to rappin'. Tame your skills, and overtime, become a freestyle legend. 
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="badixon@uci.edu;arpadua@uci.edu;mrutroug@uci.edu" href="https://Linkedin.com">
+        The Pollies'
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
-	<preference name="orientation" value="portrait" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0" />

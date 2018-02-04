@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-	Brent Dixon; Adrian
+	Authors: Brent Dixon, Adrian Padua, Micah Rutrough
 	App Description: Freestyle trainer.
 -->
 
@@ -16,64 +16,81 @@
 		
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
         
-		<script type="text/javascript" src="cordova.js"></script>
+		<!--<script type="text/javascript" src="cordova.js"></script>-->
         <script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript" src="js/corpus.js"></script>
-		
-
+		<script type="text/javascript" src="js/rapMachine.js"></script>
+		<script>playMode=0; numTracks=3; trackPos=0;</script>
 		
 		<title>Lyrica</title>
     </head>
-    <body style="background: linear-gradient(#FFABAB, #FFEFB5)">
+    <body>
         
-		<div data-role="page" id="page1" style="background: linear-gradient(#FFABAB, #FFEFB5)">
-			<!--<header data-role="header" data-position="fixed" style="border-color:orange; border-bottom-width:thick;">	
-				<img src="img/Android.png" width="30px" height="30px"/>
-				<h3 style="color:white" class="ui-inline">Lyrica</h3>
-			</header>-->
-			
-			<section data-role="content"  style="padding-top:150px;">
-				<h1 id="title" style="color:white; font-size:40px">Lyrica</h1>
-				<div style="height:280px"></div>
-				<a href="#page2" data-role="button" class="ui-btn" data-transition="flip" style="margin:0 auto; width:12em; font-size:small">Play</a> 
+		<div data-role="page" class="pages" id="page1">
+			<section data-role="content">
+				<h1 id="title">Lyrica</h1>
+				<div></div>
+				<a href="#page2" data-role="button" class="ui-btn rounded-btn" data-transition="slide">Play</a> 
 			</section>
-			
-			<!--<footer data-role="footer" data-position="fixed" style="border-color:orange; border-top-width:thick;">
-				<h3 style="color:white">Lyrica</h3>
-			</footer>-->
 		</div>
-		
-		<div data-role="page" id="page2" style="background: linear-gradient(#FFABAB, #FFEFB5)">
-			<!--<header data-role="header" data-position="fixed" style="border-color:orange; border-bottom-width:thick;">	
-				<img src="img/Android.png" width="30px" height="30px"/>
-				<h3 style="color:white" class="ui-inline">Lyrica</h3>
-			</header>-->
-			
-			<section data-role="content"  style="padding-top:150px;">
-				<div style="height:280px">
-					<div style="padding-top:50px">
-						<p id="firstWord" style="color:white; text-align:center; font-size:25px"></p>
+
+		<div data-role="page" class="pages" id="page2">
+			<section data-role="content">
+			<audio loop id="myAudio">
+				<source src="media/0.mp3" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
+				<div class="word-panel">
+					<div class="word-container">
+						<p class="word" id="firstWord"></p>
 					</div>
-					<div style="padding-top:50px">
-						<p id="secondWord" style="color:white; text-align:center; font-size:25px"></p>
+					<div class="word-container">
+						<p class="word" id="secondWord"></p>
 					</div>
 				</div>
-				<a href="" id="getRhyme" data-role="button" class="ui-btn" data-transition="flip" style="margin:0 auto; width:12em; font-size:small">Play</a> 
-				<script>
-					$("#getRhyme").click(function randomWords(){
-						firstWord = corpus.randomWord();
-						secondWord = corpus.randomWord();
-						document.getElementById("firstWord").innerHTML = firstWord;
-						document.getElementById("secondWord").innerHTML = secondWord;
-					});
-				</script>
+				<div class="buttons">
+					<a href="" onclick="rhyme()" id="getRhyme" data-role="button" class="ui-btn">Rhyme</a>
+					<a href="" onclick="trigger()" id="getRelated" data-role="button" class="ui-btn">Pivot</a> 
+					<div class="playback-buttons">
+						<div class="playback holder">
+							<img class="playback-btn" id="btn-rew" src="./img/playback-ff.svg" onclick="prevAud()" />
+							<img class="playback-btn" id="btn-play" src="./img/playback-play.svg" onclick="playAud()" />
+							<img class="playback-btn" id="btn-ff" src="./img/playback-ff.svg" onclick="nextAud()" />
+							<script>
+								var audio = document.getElementById("myAudio"); 
+
+								function playAud() {
+									if(playMode == 0)
+									{
+										playMode = 1;
+										audio.play();
+										document.getElementById("btn-play").src = "./img/playback-pause.svg";
+									}
+									else
+									{
+										playMode = 0;
+										audio.pause();
+										document.getElementById("btn-play").src = "./img/playback-play.svg";
+									}
+								}
+								function nextAud()
+								{
+									audio.src = ("media/" + ((++trackPos) % numTracks) + ".mp3");
+									audio.play();
+								}
+								function prevAud()
+								{
+									trackPos = (trackPos > 0) ? trackPos - 1 : numTracks - 1;
+									audio.src = ("media/" + (trackPos) + ".mp3");
+									audio.play();
+								}
+							</script>
+						</div>
+					</div>
+				</div>
 			</section>
-			
-			<!--<footer data-role="footer" data-position="fixed" style="border-color:orange; border-top-width:thick;">
-				<h3 style="color:white">Lyrica</h3>
-			</footer>-->
 		</div>
-		
+
     </body>
 </html>
