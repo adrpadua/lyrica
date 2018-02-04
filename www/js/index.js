@@ -1,5 +1,6 @@
 $(document).on("pagebeforeshow", "#page2", function(event){
-	firstWord = rapMachine.first_rhyme_scheme();
+	rapMachine.first_rhyme_scheme();
+	firstWord = rapMachine.get_next_rhyme();
 	secondWord = rapMachine.get_next_rhyme();
 	document.getElementById("firstWord").innerHTML = firstWord;
 	document.getElementById("secondWord").innerHTML = secondWord;
@@ -19,7 +20,8 @@ function rhyme() {
 	}
 	else
 	{
-		firstWord = rapMachine.first_rhyme_scheme();
+		rapMachine.first_rhyme_scheme();
+		firstWord = rapMachine.get_next_rhyme();
 		secondWord = rapMachine.get_next_rhyme();
 	}
 	
@@ -27,11 +29,15 @@ function rhyme() {
 }
 
 function trigger() {
+	/*
 	var new_word = rapMachine.get_pivot_word(secondWord);
 	rapMachine.new_rhyme_scheme(new_word);
 	firstWord = new_word;
 	secondWord = rapMachine.get_next_rhyme();
-	
+	*/
+	rapMachine.first_rhyme_scheme();
+	firstWord = rapMachine.get_next_rhyme();
+	secondWord = rapMachine.get_next_rhyme();
 	refreshWords();
 }
 
