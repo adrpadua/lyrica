@@ -39,7 +39,7 @@ var rapMachine = {
 	triggers: {},
 	triggersLen: 0,
 	triggersPos: 0,
-	forbidden: ["bag".replace("b","f"),"bigger".replace("b","n"),"meaner".replace("m","b"),"granny".replace("g","t")],
+	forbidden: ["bag".replace("b","f"),"bigger".replace("b","n"),"meaner".replace("m","b"),"granny".replace("g","t"),"gay","begro".replace("b","n"),"maggot".replace("m","f"),"bigga".replace("b","n")],
 	newRhyme: 1,
 	sync_request: function(my_url)
 	{
