@@ -1,0 +1,73 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "edu.uci.hack.adrian.brent"
+        }
+    }
+}
