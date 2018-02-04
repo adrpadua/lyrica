@@ -1,91 +1,243 @@
-body {
-    position: fixed;
-}
+/* Small screens - MOBILE */
+@media only screen { 
+    body {
+        position: fixed;
+    }
+    
+    body .pages {
+        background: linear-gradient(#FFABAB, #FFEFB5);
+    }
+    
+    body .ui-content {
+        height: 100%;
+        padding-top: 25%;
+        padding-bottom: 15%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    body #page1 #title {
+        color: white;
+        font-size: 5rem;
+        margin-top: 5%;
+    }
+    
+    body #page1 div {
+        height: 280px;
+    }
+    
+    body #page1 a {
+        margin: 5% auto;
+        width: 10em;
+        font-size: medium;
+        font-weight: 400;
+        color: white;
+        background: transparent;
+        border: white solid 0.15em;
+        border-radius: 15px;
+    }
+    
+    body #page2 {
+        align-content: center;
+    }
+    
+    body #page2 .word-panel {
+        width: 100vw;
+        top: 15%;
+        position: fixed;
+        height: 40%;
+    }
+    
+    .word {
+        color: white;
+        text-align: center;
+        font-size: 3.5em;
+    }
+    
+    #page2 .ui-btn {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.5em;
+        width: 10em;
+        font-size: 1.5em;
+        font-weight: 400;
+        color: white;
+        background: transparent;
+        border: white solid 0.15em;
+        border-radius: 0.5em;
+    }
+    
+    .playback-buttons {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2em;
+        margin-bottom: 5em;
+        width: 25em;
+        text-align: center;
+    }
+    
+    .buttons {
+        width: 100vw;
+        position: fixed;
+        bottom: 5%;
+    }
+    
+    .playback-buttons img {
+        height: 3.5em;
+        width: 3.5em;
+        margin: auto 1em;
+        justify-content: center;
+    }
+    
+    img.playback-btn {
+        cursor: pointer;
+    }
+    
+    #btn-rew {
+        transform: scaleX(-1);
+    }
+} /* Define mobile styles - Mobile First */
+ 
+@media only screen and (max-height: 20em) { } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+ 
 
-body .pages {
-    background: linear-gradient(#FFABAB, #FFEFB5);
-}
 
-body .ui-content {
-    height: 100%;
-    padding-top: 25%;
-    padding-bottom: 15%;
-    padding-left: 0;
-    padding-right: 0;
-}
 
-body #page1 #title {
-    color: white;
-    font-size: 5rem;
-    margin-top: 5%;
-}
 
-body #page1 div {
-    height: 280px;
-}
 
-body #page1 a {
-    margin: 5% auto;
-    width: 10em;
-    font-size: medium;
-    font-weight: 400;
-    color: white;
-    background: transparent;
-    border: white solid 0.15em;
-    border-radius: 15px;
-}
+/* Medium screens - TABLET */
+@media only screen and (min-width: 40.063em) and (max-height: 30em){ 
+    body .pages {
+        background: linear-gradient(#FFABAB, #FFEFB5);
+    }
 
-body #page2 {
-    align-content: center;
-}
+    body .ui-content {
+        height: 100%;
+        padding-top: 15%;
+        padding-bottom: 15%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 
-body #page2 .word-panel {
-    width: 100vw;
-    top: 15%;
-    position: fixed;
-    height: 40%;
-}
+    .word {
+        margin-top: 0.5em;;
+        margin-bottom: 0;
+    }
+    
+    .main-buttons {
+        width: 100vw;
+        margin-bottom: 1.5em;
+        justify-content: center;
+    }
 
-.word {
-    color: white;
-    text-align: center;
-    font-size: 3em;
-}
+    #page2 .ui-btn {
+        margin: auto 0.7em;
+        font-size: 1.5em;
+        font-weight: 400;
+        color: white;
+        background: transparent;
+        border: white solid 0.15em;
+        border-radius: 0.5em;
+    }
 
-body #page2 .ui-btn {
-    margin: 5% auto;
-    width: 10em;
-    font-size: medium;
-    font-weight: 400;
-    color: white;
-    background: transparent;
-    border: white solid 0.15em;
-    border-radius: 15px;
-}
+    .playback-buttons {
+        margin: auto;
+    }
 
-.buttons {
-    width: 100vw;
-    position: fixed;
-    bottom: 10%;
-}
+    .main-buttons {
+        display: flex;
+        flex-direction: row;
+    }
+} /* min-width 641px, medium screens */
+ 
+@media only screen and (min-width: 40.063em) and (min-height: 31em) { 
+    body .pages {
+        background: linear-gradient(#FFABAB, #FFEFB5);
+    }
+    
+    .word {
+        font-size: 5em;
+    }
+} /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+ 
+/* Large screens - DESKTOP */
+@media only screen and (min-width: 64.063em) { 
+    body .pages {
+        background: gray;
+    }
+    
+    .word {
+        font-size: 10em;
+    }
 
-.playback-buttons {
-    margin: 10% auto;
-    width: 25em;
-    text-align: center;
-}
+    #page2 .ui-btn {
+        font-size: 3em;
+    }
 
-.playback-buttons img {
-    height: 3.5em;
-    width: 3.5em;
-    margin: auto 1em;
-    justify-content: center;
-}
+    .playback-buttons {
+        margin-top: 3em;
+        width: 100vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-img.playback-btn {
-    cursor: pointer;
-}
+    .playback-buttons img {
+        height: 9em;
+        width: 9em;
+        margin: auto 1em;
+        justify-content: center;
+    }
 
-#btn-rew {
-    transform: scaleX(-1);
-}
+} /* min-width 1025px, large screens */
+ 
+@media only screen and (min-width: 64.063em) and (max-width: 90em) { 
+    body .pages {
+        background: linear-gradient(#FFABAB, #FFEFB5);
+    }
+
+    body .ui-content {
+        height: 100%;
+        padding-top: 15%;
+        padding-bottom: 15%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .word {
+        margin-top: 0.5em;;
+        margin-bottom: 0;
+        font-size: 6em;
+    }
+    
+    .main-buttons {
+        width: 100vw;
+        margin-bottom: 2.5em;
+        justify-content: center;
+    }
+
+    #page2 .ui-btn {
+        margin: auto 0.7em;
+        font-size: 2em;
+        font-weight: 400;
+        color: white;
+        background: transparent;
+        border: white solid 0.15em;
+        border-radius: 0.5em;
+    }
+
+    .playback-buttons {
+        margin: auto;
+    }
+
+    .playback-buttons img {
+        height: 5em;
+        width: 5em;
+        margin: auto 1em;
+        justify-content: center;
+    }
+
+    .main-buttons {
+        display: flex;
+        flex-direction: row;
+    }
+} /* min-width 1024px and max-width 1440px, use when QAing large screen-only issues */
