@@ -28,7 +28,7 @@
     body #page1 .ui-btn {
         margin-left: auto;
         margin-right: auto;
-        margin-top: 1.5em;
+        margin-top: 0.5em;
         width: 10em;
         font-size: 1.5em;
         font-weight: 400;
@@ -68,7 +68,7 @@
         margin-right: auto;
         margin-top: 1.5em;
         width: 10em;
-        font-size: 1.5em;
+        font-size: 1em;
         font-weight: 400;
         color: white;
         background: transparent;
@@ -92,8 +92,8 @@
     }
     
     .playback-buttons img {
-        height: 3.5em;
-        width: 3.5em;
+        height: 2.8em;
+        width: 2.8em;
         margin: auto 1em;
         justify-content: center;
     }
@@ -114,7 +114,7 @@
 
 
 
-/* Medium screens - TABLET */
+
 @media only screen and (min-width: 40.063em) and (max-height: 30em){ 
     body .pages {
         background: linear-gradient(#FFABAB, #FFEFB5);
@@ -170,7 +170,7 @@
     body #page1 .ui-btn {
         font-size: 1em;
     }
-} /* min-width 641px, medium screens */
+}
  
 @media only screen and (min-width: 40.063em) and (min-height: 31em) { 
     body .pages {
@@ -180,9 +180,8 @@
     .word {
         font-size: 5em;
     }
-} /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
- 
-/* Large screens - DESKTOP */
+} 
+
 @media only screen and (min-width: 64.063em) { 
     body .pages {
         background: linear-gradient(#FFABAB, #FFEFB5);
@@ -223,7 +222,7 @@
         font-size: 3em;
     }
 
-} /* min-width 1025px, large screens */
+}
  
 @media only screen and (min-width: 64.063em) and (max-width: 90em) { 
     body .pages {
@@ -288,4 +287,4 @@
     body #page1 .ui-btn {
         font-size: 2em;
     }
-} /* min-width 1024px and max-width 1440px, use when QAing large screen-only issues */
+} 
