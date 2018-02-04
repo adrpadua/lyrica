@@ -3,6 +3,12 @@ $(document).on("pagebeforeshow", "#page2", function(event){
 	secondWord = rapMachine.get_next_rhyme();
 	document.getElementById("firstWord").innerHTML = firstWord;
 	document.getElementById("secondWord").innerHTML = secondWord;
+	$(document).on("swiperight", function(e){
+		rhyme();
+	});
+	$(document).on("swipeleft", function(e){
+		trigger();
+	});
 });
 
 function rhyme() {
@@ -53,4 +59,34 @@ function fadeWordsIn() {
 	document.getElementById("firstWord").innerHTML = firstWord;
 	document.getElementById("secondWord").innerHTML = secondWord;
 	$('.word-container').fadeIn(50)
+}
+
+function playAud() {
+	if(playMode == 0)
+	{
+		playMode = 1;
+		audio.play();
+		document.getElementById("btn-play").src = "./img/playback-pause.svg";
+	}
+	else
+	{
+		playMode = 0;
+		audio.pause();
+		document.getElementById("btn-play").src = "./img/playback-play.svg";
+	}
+}
+function nextAud()
+{
+	audio.src = ("media/" + ((++trackPos) % numTracks) + ".mp3");
+	audio.play();
+}
+function prevAud()
+{
+	trackPos--;
+	if(trackPos < 0)
+		trackPos = numTracks-1;
+	if(trackPos > numTracks)
+		trackPos = numTracks-1;
+	audio.src = ("media/" + (trackPos) + ".mp3");
+	audio.play();
 }

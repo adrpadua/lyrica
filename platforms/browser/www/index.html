@@ -21,12 +21,16 @@
 		<!--<script type="text/javascript" src="cordova.js"></script>-->
         <script type="text/javascript" src="js/index.js"></script>
 		<script type="text/javascript" src="js/rapMachine.js"></script>
-		<script>playMode=0; numTracks=5; trackPos=0;</script>
+		<script>var playMode=0; var numTracks=5; var trackPos=0;</script>
 		
 		<title>Lyrica</title>
     </head>
     <body>
-        
+        <audio loop id="myAudio">
+			<source src="media/0.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+		<script>var audio = document.getElementById("myAudio");</script>
 		<div data-role="page" class="pages" id="page1">
 			<section data-role="content">
 				<h1 id="title">Lyrica</h1>
@@ -37,10 +41,6 @@
 
 		<div data-role="page" class="pages" id="page2">
 			<section data-role="content">
-			<audio loop id="myAudio">
-				<source src="media/0.mp3" type="audio/mpeg">
-				Your browser does not support the audio element.
-			</audio>
 				<div class="word-panel">
 					<div class="word-container">
 						<p class="word" id="firstWord"></p>
@@ -59,41 +59,6 @@
 							<img class="playback-btn" id="btn-rew" src="./img/playback-ff.svg" onclick="prevAud()" />
 							<img class="playback-btn" id="btn-play" src="./img/playback-play.svg" onclick="playAud()" />
 							<img class="playback-btn" id="btn-ff" src="./img/playback-ff.svg" onclick="nextAud()" />
-							<script>
-								var audio = document.getElementById("myAudio");
-								$(document).on("swiperight", function(e){
-									rhyme();
-								});
-								$(document).on("swipeleft", function(e){
-									trigger();
-								});
-
-								function playAud() {
-									if(playMode == 0)
-									{
-										playMode = 1;
-										audio.play();
-										document.getElementById("btn-play").src = "./img/playback-pause.svg";
-									}
-									else
-									{
-										playMode = 0;
-										audio.pause();
-										document.getElementById("btn-play").src = "./img/playback-play.svg";
-									}
-								}
-								function nextAud()
-								{
-									audio.src = ("media/" + ((++trackPos) % numTracks) + ".mp3");
-									audio.play();
-								}
-								function prevAud()
-								{
-									trackPos = (trackPos > 0) ? trackPos - 1 : numTracks - 1;
-									audio.src = ("media/" + (trackPos) + ".mp3");
-									audio.play();
-								}
-							</script>
 						</div>
 					</div>
 				</div>
