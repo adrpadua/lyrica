@@ -53,6 +53,7 @@ var rapMachine = {
 	["wool", "stool", "drool", "fool", "jewel", "spoonful", "bull", "in full", "mouthful"], 
 	["bluff", "rough", "stuff", "cream puff", "tough", "fluff", "hot stuff", "enough", "earmuff"],
 	["fortify", "aye", "guy", "stye", "pie", "high", "blue sky", "black eye", "buckeye", "fry", "cry", "nigh", "ally", "fly"], ["crime", "brime", "chime", "chyme", "climb", "clime", "dime", "drime", "grime"], ["enemy", "kennedy", "dreadfully", "parody", "entity", "pleasantly", "sesame", "medically", "ecstasy", "fretfully"], ["precocious", "bogus", "ferocious", "atrocious", "focus", "prognosis", "mitosis", "hypnosis", "osmosis"], ["shortage", "cartridge", "cottage", "garbage", "mortgage", "knowledge", "bondage", "forage", "porridge"],
+	["deliver", "liver", "quiver", "river", "shiver", "sliver", "giver", "forgiver", "upriver"], ["storm", "form", "dorm", "life form", "free form", "lukewarm", "brainstorm", "inform", "transform", "uniform"], ["blasphemy", "catastrophe", "abnormality", "actuality", "cavity", "munincipality", "dimensionality"], ["major league", "fatigue", "intrigue", "seige", "greig", "blitzkrieg"], ["surge", "splurge", "purge", "dirge", "diverge", "upsurge", "resurge", "emerge", "verge", "scourage", "courage"],
 	[
     "ditch",
     "fitch",
