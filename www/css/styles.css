@@ -167,11 +167,11 @@
     }
     
     .word {
-        font-size: 10em;
+        font-size: 7em;
     }
 
     #page2 .ui-btn {
-        font-size: 3em;
+        font-size: 1.5em;
     }
 
     .playback-buttons {
@@ -182,8 +182,8 @@
     }
 
     .playback-buttons img {
-        height: 9em;
-        width: 9em;
+        height: 5em;
+        width: 5em;
         margin: auto 1em;
         justify-content: center;
     }
