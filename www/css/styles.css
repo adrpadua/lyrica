@@ -108,12 +108,6 @@
 } /* Define mobile styles - Mobile First */
  
 @media only screen and (max-height: 20em) { } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
- 
-
-
-
-
-
 
 @media only screen and (min-width: 40.063em) and (max-height: 30em){ 
     body .pages {

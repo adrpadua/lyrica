@@ -55,7 +55,7 @@ var rapMachine = {
 		var base = "https://api.datamuse.com/words?rel_rhy=";	
 		return(JSON.parse(this.sync_request(base + word)));
 	},
-	
+
 	get_nrhymes: function(word)
 	{
 		var base = "https://api.datamuse.com/words?nel_nry=";	
@@ -128,7 +128,10 @@ var rapMachine = {
 	
 	new_rhyme_scheme: function(word)
 	{
-		this.rhymes = this.get_rhymes(word);
+		this.rhymes = this.get_rhymes(word).filter( 
+			obj => obj.score > 250 &&
+			!obj.word.includes(" ")
+		);
 		this.rhymes.concat(this.get_nrhymes(word));
 		this.rhymes = this.randomize_first_third(this.rhymes);
 	},
