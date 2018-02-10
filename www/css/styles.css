@@ -6,25 +6,25 @@
     
     body .pages {
         background: linear-gradient(#FFABAB, #FFEFB5);
+        /* background: red; */
     }
 
-    body #page1 .ui-content {
-        height: 100%;
-        padding-top: 25%;
-        padding-bottom: 25%;
-        padding-left: 0;
-        padding-right: 0;
+    body #page1 .intro {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    body #page1 div {
+        height: 4em;
     }
 
     body #page1 #title {
         color: white;
         font-size: 7em;
     }
-    
-    body #page1 div {
-        height: 15em;
-    }
-    
+
     body #page1 .ui-btn {
         margin-left: auto;
         margin-right: auto;
@@ -120,14 +120,6 @@
         background: linear-gradient(#FFABAB, #FFEFB5);
     }
 
-    body .ui-content {
-        height: 100%;
-        padding-top: 15%;
-        padding-bottom: 15%;
-        padding-left: 0;
-        padding-right: 0;
-    }
-
     .word {
         margin-top: 0.5em;;
         margin-bottom: 0;
@@ -161,10 +153,6 @@
     body #page1 #title {
         color: white;
         font-size: 4em;
-    }
-
-    body #page1 div {
-        height: 1em;
     }
 
     body #page1 .ui-btn {
@@ -214,10 +202,6 @@
         font-size: 17em;
     }
 
-    body #page1 div {
-        height: 15em;
-    }
-
     body #page1 .ui-btn {
         font-size: 3em;
     }
@@ -227,14 +211,6 @@
 @media only screen and (min-width: 64.063em) and (max-width: 90em) { 
     body .pages {
         background: linear-gradient(#FFABAB, #FFEFB5);
-    }
-
-    body .ui-content {
-        height: 100%;
-        padding-top: 15%;
-        padding-bottom: 15%;
-        padding-left: 0;
-        padding-right: 0;
     }
 
     .word {
@@ -278,10 +254,6 @@
     body #page1 #title {
         color: white;
         font-size: 9em;
-    }
-
-    body #page1 div {
-        height: 10em;
     }
 
     body #page1 .ui-btn {
