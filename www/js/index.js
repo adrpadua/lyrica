@@ -7,7 +7,7 @@ $(document).on("pagebeforeshow", "#page2", function(event){
 		rhyme();
 	});
 	$(document).on("swipeleft", function(e){
-		trigger();
+		seed();
 	});
 });
 
@@ -23,6 +23,14 @@ function rhyme() {
 		secondWord = rapMachine.get_next_rhyme();
 	}
 	
+	refreshWords();
+}
+
+function seed() {
+	console.log("seed");
+	firstWord = rapMachine.first_rhyme_scheme();
+	secondWord = rapMachine.get_next_rhyme();
+
 	refreshWords();
 }
 
